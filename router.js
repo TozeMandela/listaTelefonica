@@ -12,5 +12,5 @@ Router.get('/error', (req, res)=>{
 Router.get('/login/index', login.index);
 Router.post('/login/entrar', login.logar);
 Router.post('/login/register', login.register);
-
+Router.get('/login/logout',login.logout)
 module.exports = Router;
