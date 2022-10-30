@@ -18,7 +18,7 @@ exports.logar = async (req, res)=>{
         }
 
         req.flash('sucesso', 'login feito com sucesso!');
-        // req.session.(login.user);
+        req.session.user = (login.user);
         res.redirect('back');
 
     } catch (error) {
