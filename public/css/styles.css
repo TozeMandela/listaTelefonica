@@ -1,0 +1,21 @@
+@charset 'utf-8';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.foo{
+ color: white;
+ text-align: center;
+}
+.err{
+    text-align: center;
+    font-size: 12em;
+    color: red;
+}
+form{
+    min-width: 40%;
+}
+::placeholder{
+    text-align: center;
+}

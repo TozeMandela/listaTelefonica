@@ -1,0 +1,19 @@
+<% if(erros.length>0){ %>
+    <div class="res row">
+        <div class="col alert alert-danger">
+            <% erros.forEach(el=>{ %>
+                <%= el %><br/>
+            <% }) %>     
+        </div>
+    </div>
+
+<% } %>
+
+<% if(success.length!==0){ %>
+    <div class="res row">
+        <div class="col alert alert-success">
+                <%= success[0] %> 
+        </div>
+    </div>
+
+<% } %>

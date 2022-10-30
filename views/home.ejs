@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <%- include("./includes/styles") %>
+</head>
+<body>
+    <%- include("./includes/header") %>
+    <div class="row">
+        <div class="col-2">
+        </div>
+
+          <div class="col-8">
+            
+            <h1 class="display-4 text-center">Bem vindo a sua lista de contactos</h1>
+            <hr>
+            <%- include("./includes/respostas") %>
+            <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Contacto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+
+                </tbody>
+              </table>
+          </div>
+        <div class="col-2"></div>
+    </div>
+
+    <%- include("./includes/footer") %>
+</body>
+</html>

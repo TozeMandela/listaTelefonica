@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login or create account</title>
+    <%- include("../includes/styles") %>
+</head>
+<body>
+    <%- include("../includes/header") %>
+    <section class="row justify-content-center text-center">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h1 class="display-6 text-center"> faça seu login or cria sua conta abaixo</h1>
+        <%- include("../includes/respostas") %>
+        <div class="lado_lado row">
+        
+          <div class="col-lg bg-light">
+            <p>Se já têm uma conta, faça seu login</p>
+
+              <form class="login mb-4 mt-4" method="POST" action="/login/entrar">
+                  <input type="hidden" name="_csrf" value="<%= csrf %>">
+                  <div class="mb-3">
+                    <label for="emailL" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="emailL" name="email" placeholder="digite seu e-mail" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="passwordL" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="passwordL" placeholder="digite sua senha">
+                  </div>
+        
+                  <button type="submit" class="btn btn-primary">logar</button>
+                </form>
+          </div>
+          <div class="col-lg">
+            <p>Se não têm uma conta, crie ela aqui</p>
+
+              <form class="createAccount mb-4 mt-4" method="POST" action="/login/register">
+                <input type="hidden" name="_csrf" value="<%= csrf %>">
+                <div class="mb-3">
+                    <label for="name" class="form-label">name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="digite seu nome" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="tel" class="form-label">Nº telefonico</label>
+                    <input type="number" class="form-control" name="tel" id="tel" placeholder="digite seu nº tel" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="digite seu e-mail" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" id="password" placeholder="digite sua senha">
+                </div>
+        
+                <button type="submit" class="btn btn-success">criar conta</button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </section>
+    <%- include("../includes/footer") %>
+</body>
+</html>
