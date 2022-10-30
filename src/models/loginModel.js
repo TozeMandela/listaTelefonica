@@ -32,14 +32,15 @@ class Register{
 
     async login (){
         this.valida(false);
+        if(this.Erros.length > 0) return; 
+
         this.user = await registerModel.findOne({email: this.body.email});
         if(!this.user){ 
             this.Erros.push('e-mail or password invalid!')
             return;
         }
-        
-        if(!await bcryptJs.compare(this.body.password, this.user.password)){
-            this.Erros.push('senha invalida!')
+        if(!bcryptJs.compareSync(this.body.password, this.user.password)){
+            this.Erros.push('senha errada!')
             this.user = null;
             return;
         }
