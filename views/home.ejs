@@ -38,7 +38,7 @@
                       <td><button class="btn btn-success"></button></td>
                     </tr>
                   <% }else{ %>
-                    <% if(contacts){ %>
+                    <% if(contacts.length>0){ %>
                       <% contacts.forEach((tel, index)=>{ %>
                       <tr>
                         <td><%= index %></td>
@@ -51,12 +51,7 @@
                       </tr>
                       <% }) %>
                     <% }else{ %>
-                      <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
+                      <p class="text-center display-6">Não existem contactos na sua lista</p>
                     <% } %>
                   <% } %>
 

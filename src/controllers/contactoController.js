@@ -16,7 +16,6 @@ exports.register = async (req, res)=>{
             });
             return;
         }
-
         req.flash('sucesso', 'Contacto salvo com sucesso');
         res.redirect('back');
     }catch(e){

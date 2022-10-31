@@ -36,14 +36,13 @@ Contactos.prototype.Get = async function (){
 Contactos.edit = async function (id){
     try{
         const contactEdit = await contactoModel.findById(id);
-        console.log('mamamam::::: ', contactEdit)
         return contactEdit;
     }catch(e){
         console.log('erro ao pesquisar', e);
     }
 }
 Contactos.Remove = async function (id){
-    try{
+    try{ 
         await contactoModel.findOneAndRemove(id);
         return contactEdit;
     }catch(e){
