@@ -58,3 +58,13 @@ exports.registerEdit = async (req, res)=>{
         res.render('pages/404')
     }
 }
+exports.remove = async (req, res)=>{
+    try{
+        await Contactos.Remove(req.params);
+        req.flash('sucesso', 'eliminado com sucesso');
+        res.redirect('back');
+    }catch(e){
+        console.log('erroooooo');
+        res.render('pages/404')
+    }
+}

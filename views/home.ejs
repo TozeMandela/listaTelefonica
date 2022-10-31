@@ -47,7 +47,7 @@
                         <td><%= tel.tel %></td>
                         <td>
                           <a class="btn btn-success " href="contacto/edit/<%= tel._id %>">editar</a>
-                          <a class="btn btn-danger m-1" data-id="<%= tel._id %>" href="contacto/excluir">excluir</a></td>
+                          <a class="btn btn-danger m-1" data-id="<%= tel._id %>" href="contacto/excluir/<%= tel._id %>">excluir</a></td>
                       </tr>
                       <% }) %>
                     <% }else{ %>

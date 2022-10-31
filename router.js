@@ -19,5 +19,6 @@ Router.get('/cadastrarC/index', userRequired, contactos.cadastrarC);
 Router.post('/contacto/register',  userRequired, contactos.register);
 Router.get('/contacto/edit/:_id',  userRequired, contactos.edit);
 Router.post('/contacto/edit',  userRequired, contactos.registerEdit);
+Router.get('/contacto/excluir/:_id',  userRequired, contactos.remove)
 
 module.exports = Router;
