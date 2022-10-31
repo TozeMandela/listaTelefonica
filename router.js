@@ -16,7 +16,8 @@ Router.post('/login/entrar', login.logar);
 Router.post('/login/register', login.register);
 Router.get('/login/logout',login.logout);
 Router.get('/cadastrarC/index', userRequired, contactos.cadastrarC);
-Router.post('/contacto/register', contactos.register)
-
+Router.post('/contacto/register',  userRequired, contactos.register);
+Router.get('/contacto/edit/:_id',  userRequired, contactos.edit);
+Router.post('/contacto/edit',  userRequired, contactos.registerEdit);
 
 module.exports = Router;

@@ -25,6 +25,34 @@ function Contactos(body){
 
 }
 
+Contactos.prototype.Get = async function (){
+    try{
+        this.contacto = await contactoModel.find();
+    }catch(e){
+        console.log('erro ao buscar no base dados...', e)
+    }
+    
+}
+Contactos.edit = async function (id){
+    try{
+        const contactEdit = await contactoModel.findById(id);
+        console.log('mamamam::::: ', contactEdit)
+        return contactEdit;
+    }catch(e){
+        console.log('erro ao pesquisar', e);
+    }
+}
+
+Contactos.prototype.registerEdiit = async function(id){
+    this.valida();
+    
+    if(this.Erros.length > 0) return;
+    try{
+        await contactoModel.findByIdAndUpdate(id, this.body, {new: true});
+    }catch(e){
+        console.log('erro ao salvar edição')
+    }
+}
 Contactos.prototype.register = async function(){
     this.valida();
     if(this.Erros.length > 0) return;

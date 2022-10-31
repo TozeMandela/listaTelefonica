@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Contactos</title>
+    <%- include('../includes/styles') %>
+</head>
+<body>
+    <%- include('../includes/header') %>
+<section class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="header text-center">
+                <h4 class="display-6">Editando contacto</h4>
+                <p>preencha todos os campos aproveite os nossos serviços</p>
+            </div>
+            <%- include('../includes/respostas') %>
+              <form class="createAccount mb-4 mt-4" method="POST" action="/contacto/edit">
+                <input type="hidden" name="_csrf" value="<%= csrf %>">
+                <input type="hidden" name="_id" value="<%= contacto._id %>">
+                <div class="mb-3">
+                    <label for="name" class="form-label">name</label>
+                    <input type="text" class="form-control" value="<%= contacto.name %>" name="name" id="name" placeholder="digite o nome" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="tel" class="form-label">Nº telefonico</label>
+                    <input type="number" class="form-control" value="<%= contacto.tel %>" name="tel" id="tel" placeholder="digite o nº tel" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" value="<%= contacto.email %>" name="email" id="email" placeholder="digite o e-mail" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn btn-primary">salvar edição</button>
+              </form>
+          </div>
+          <div class="col-2"></div>
+
+</section>
+<%- include('../includes/footer') %>
+</body>
+</html>

@@ -25,6 +25,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Contacto</th>
+                    <th scope="col">Controls</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,14 +35,29 @@
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
+                      <td><button class="btn btn-success"></button></td>
                     </tr>
                   <% }else{ %>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
+                    <% if(contacts){ %>
+                      <% contacts.forEach((tel, index)=>{ %>
+                      <tr>
+                        <td><%= index %></td>
+                        <td><%= tel.name %></td>
+                        <td><%= tel.email %></td>
+                        <td><%= tel.tel %></td>
+                        <td>
+                          <a class="btn btn-success " href="contacto/edit/<%= tel._id %>">editar</a>
+                          <a class="btn btn-danger m-1" data-id="<%= tel._id %>" href="contacto/excluir">excluir</a></td>
+                      </tr>
+                      <% }) %>
+                    <% }else{ %>
+                      <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                    <% } %>
                   <% } %>
 
                 </tbody>
