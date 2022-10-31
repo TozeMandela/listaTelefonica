@@ -44,7 +44,6 @@ Contactos.edit = async function (id){
 Contactos.Remove = async function (id){
     try{ 
         await contactoModel.findOneAndRemove(id);
-        return contactEdit;
     }catch(e){
         console.log('erro ao pesquisar', e);
     }
