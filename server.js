@@ -9,7 +9,7 @@ const app = express();
 /* connectando ao mongo */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/agenda').then(()=>{
+mongoose.connect(process.env.CONNECTBD).then(()=>{
     app.emit('Connected');
     console.log('connetion with data-bases is sucessfull.');
 }).catch(e=>console.log('erro ao connectar com a base de dados'));
