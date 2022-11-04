@@ -24,11 +24,11 @@ exports.register = async (req, res)=>{
     }
     
 }
-
+/* 
 exports.delite = (req, res)=>{
     console.log(req.params)
 }
-
+ */
 exports.edit = async (req, res)=>{
     try{
         const contact = await Contactos.edit(req.params);
@@ -63,7 +63,7 @@ exports.remove = async (req, res)=>{
         req.flash('sucesso', 'eliminado com sucesso');
         res.redirect('back');
     }catch(e){
-        console.log('erroooooo');
+        console.log('erroooooo',e);
         res.render('pages/404')
     }
 }

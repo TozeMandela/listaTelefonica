@@ -6,6 +6,7 @@ exports.index = (req, res)=>{
 }
 
 exports.logar = async (req, res)=>{
+    
     try {
         const login = new Register(req.body);
         await login.login();

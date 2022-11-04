@@ -21,31 +21,41 @@ var ValidatorOne = /*#__PURE__*/function () {
     key: "initForm",
     value: function initForm() {
       var _this = this;
-      this.form.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-        _this.validInput(evt);
-        if (_this.Erros.length > 0) {
-          console.log(_this.Erros);
-          _this.Erros.forEach(function (err) {
-            alert(err);
-            window.location.reload();
-          });
-        }
-        evt.target.submit();
-        console.log('mandela...');
-      });
+      var EmailisCObrig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      if (this.form) {
+        this.form.addEventListener('submit', function (evt) {
+          evt.preventDefault();
+          _this.validInput(evt, EmailisCObrig);
+          if (_this.Erros.length > 0) {
+            console.log(_this.Erros);
+            _this.Erros.forEach(function (err) {
+              alert(err);
+            });
+            return window.location.reload();
+          }
+          evt.target.submit();
+        });
+      }
     }
   }, {
     key: "validInput",
     value: function validInput(evtForm) {
       var _this2 = this;
+      var isCObrig = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       evtForm.target.querySelectorAll('input').forEach(function (form) {
         if (form.name !== '_csrf') {
           if (form.name == 'email') {
-            if (!form.value && !validator.isEmail(form.value)) _this2.Erros.push('campo E-mail é requerido e o email têm que ser valido!');
+            if (!form.value && isCObrig && !validator.isEmail(form.value)) _this2.Erros.push('campo E-mail é requerido e o email têm que ser valido!');
+            if (!isCObrig && form.value && !validator.isEmail(form.value)) _this2.Erros.push('email invalido');
           }
           if (form.name == 'password') {
             if (!form.value || form.value.length < 6) _this2.Erros.push('campo senha é requerido e a senha deve ter mais de 6 digitos!');
+          }
+          if (form.name == 'name') {
+            if (form.value == '') _this2.Erros.push('campo nome é requerido');
+          }
+          if (form.name == 'tel') {
+            if (!form.value || form.value.length <= 8) _this2.Erros.push('contactos deve ter no minimo 9 digitos');
           }
         }
       });
@@ -27835,7 +27845,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var validatorLogin = new (_class_validator_f1__WEBPACK_IMPORTED_MODULE_2___default())('.login');
-validatorLogin.initForm();
+var validatorCriarConta = new (_class_validator_f1__WEBPACK_IMPORTED_MODULE_2___default())('.createAccount');
+var validatorCadastroContact = new (_class_validator_f1__WEBPACK_IMPORTED_MODULE_2___default())('.cadastroContacto');
+validatorLogin.initForm(true);
+validatorCriarConta.initForm();
+validatorCadastroContact.initForm();
 })();
 
 /******/ })()
